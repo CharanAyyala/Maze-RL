@@ -1,6 +1,5 @@
 import pygame
 
-# Maze Layout
 maze = [
     ["S", ".", "#", ".", ".", ".", "#", ".", "G"],
     [".", "#", ".", "#", "#", ".", "#", ".", "#"],
@@ -11,20 +10,15 @@ maze = [
     [".", ".", ".", ".", ".", ".", ".", ".", "."]
 ]
 
-# Constants
 TILE_SIZE = 50
 WIDTH, HEIGHT = len(maze[0]) * TILE_SIZE, len(maze) * TILE_SIZE
 PLAYER_COLOR = (0, 255, 0)
 WALL_COLOR = (50, 50, 50)
 GOAL_COLOR = (255, 215, 0)
 BACKGROUND_COLOR = (200, 200, 200)
-
-# Initialize pygame
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("RL Maze Game")
-
-# Player Position
 player_pos = [0, 0]
 
 
@@ -38,7 +32,7 @@ def draw_maze():
             elif maze[row][col] == "G":
                 pygame.draw.rect(screen, GOAL_COLOR, (x, y, TILE_SIZE, TILE_SIZE))
 
-    # Draw Player
+
     px, py = player_pos[1] * TILE_SIZE, player_pos[0] * TILE_SIZE
     pygame.draw.rect(screen, PLAYER_COLOR, (px, py, TILE_SIZE, TILE_SIZE))
     pygame.display.flip()
